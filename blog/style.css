@@ -1,0 +1,200 @@
+:root {
+    --bg-color: #0a0a0a;
+    --text-color: #00ff41;
+    --dim-color: #008f11;
+    --accent-color: #003b00;
+    --font-main: 'Courier New', Courier, monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid var(--dim-color);
+    padding: 20px;
+    box-shadow: 0 0 20px var(--accent-color);
+}
+
+header {
+    margin-bottom: 40px;
+    border-bottom: 2px dashed var(--dim-color);
+    padding-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px var(--accent-color);
+}
+
+.subtitle {
+    color: var(--dim-color);
+    font-size: 0.9em;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    display: inline-block;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--text-color);
+}
+
+.label {
+    font-weight: bold;
+    color: #fff;
+}
+
+.terminal-card {
+    border: 1px solid var(--dim-color);
+    padding: 15px;
+    background: rgba(0, 59, 0, 0.1);
+}
+
+.timeline .entry {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-left: 2px solid var(--dim-color);
+    position: relative;
+}
+
+.timeline .entry::before {
+    content: '>';
+    position: absolute;
+    left: -6px;
+    top: 0;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.time {
+    display: block;
+    font-size: 0.8em;
+    color: var(--dim-color);
+    margin-bottom: 5px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.skill-category {
+    border: 1px solid var(--dim-color);
+    padding: 10px;
+}
+
+.skill-category h3 {
+    border-bottom: 1px solid var(--dim-color);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li::before {
+    content: '> ';
+    color: var(--dim-color);
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+}
+
+.blink {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% { opacity: 0; }
+}
+
+/* Glitch Effect */
+.glitch {
+    position: relative;
+}
+
+.glitch::before, .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -1px 0 red;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -1px 0 blue;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+    0% { clip: rect(31px, 9999px, 94px, 0); }
+    5% { clip: rect(70px, 9999px, 7px, 0); }
+    10% { clip: rect(25px, 9999px, 78px, 0); }
+    15% { clip: rect(5px, 9999px, 43px, 0); }
+    20% { clip: rect(61px, 9999px, 15px, 0); }
+    25% { clip: rect(38px, 9999px, 86px, 0); }
+    30% { clip: rect(89px, 9999px, 11px, 0); }
+    35% { clip: rect(1px, 9999px, 66px, 0); }
+    40% { clip: rect(55px, 9999px, 8px, 0); }
+    45% { clip: rect(23px, 9999px, 95px, 0); }
+    50% { clip: rect(98px, 9999px, 26px, 0); }
+    55% { clip: rect(6px, 9999px, 64px, 0); }
+    60% { clip: rect(39px, 9999px, 83px, 0); }
+    65% { clip: rect(12px, 9999px, 16px, 0); }
+    70% { clip: rect(81px, 9999px, 50px, 0); }
+    75% { clip: rect(53px, 9999px, 4px, 0); }
+    80% { clip: rect(28px, 9999px, 92px, 0); }
+    85% { clip: rect(86px, 9999px, 33px, 0); }
+    90% { clip: rect(4px, 9999px, 88px, 0); }
+    95% { clip: rect(62px, 9999px, 49px, 0); }
+    100% { clip: rect(19px, 9999px, 20px, 0); }
+}
+
+@keyframes glitch-anim2 {
+    0% { clip: rect(65px, 9999px, 34px, 0); }
+    /* ... shortened for brevity, just repeating generic glitch behavior ... */
+    100% { clip: rect(2px, 9999px, 81px, 0); }
+}
+

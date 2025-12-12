@@ -3,67 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Group - Home</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <title>FY10086 GitHub Pages</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+        .card {
+            background: white;
+            padding: 2rem;
+            margin: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: inline-block;
+            width: 250px;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h2 {
+            margin-top: 0;
+        }
+        .card a {
+            display: block;
+            text-decoration: none;
+            color: #333;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: #007bff;
+            color: white;
+            border-radius: 4px;
+        }
+        .blog-card {
+            background: #0d0d0d;
+            color: #00ff41;
+        }
+        .blog-card a {
+            color: #00ff41;
+        }
+        .blog-card .btn {
+            background: #003b00;
+            border: 1px solid #00ff41;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Research Group Name</div>
-                <div class="menu-toggle" id="mobile-menu">
-                    <span>&#9776;</span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="members.html">Members</a></li>
-                    <li><a href="publications.html">Research</a></li>
-                    <li><a href="news.html">News</a></li>
-                </ul>
-            </nav>
+    <div class="container">
+        <h1>Welcome</h1>
+        <div class="card">
+            <a href="group/index.html">
+                <h2>Research Group</h2>
+                <p>Visit the research group website.</p>
+                <span class="btn">Go to Group Site</span>
+            </a>
         </div>
-    </header>
-
-    <main class="container">
-        <section class="hero">
-            <h1>Welcome to Our Research Group</h1>
-            <p>We focus on cutting-edge research in [Field Name], exploring new frontiers and developing innovative solutions.</p>
-            <a href="publications.html" class="btn">View Our Work</a>
-        </section>
-
-        <section id="recent-progress">
-            <h2 class="section-title">Recent Research Progress</h2>
-            <div class="news-list">
-                <article class="news-item">
-                    <span class="date">Dec 12, 2025</span>
-                    <h3><a href="#">Paper Accepted at Top Conference 2025</a></h3>
-                    <p>Our latest work on [Topic] has been accepted for presentation. This research proposes a novel approach to...</p>
-                </article>
-                <article class="news-item">
-                    <span class="date">Nov 20, 2025</span>
-                    <h3><a href="#">New Grant Awarded</a></h3>
-                    <p>We are excited to announce that our group has received funding from [Agency] to investigate...</p>
-                </article>
-                <article class="news-item">
-                    <span class="date">Oct 05, 2025</span>
-                    <h3><a href="#">Collaboration with Industry Partner</a></h3>
-                    <p>Our group has started a new collaboration with [Company Name] to translate our research into real-world applications.</p>
-                </article>
-            </div>
-            <div style="text-align: right; margin-top: 10px;">
-                <a href="news.html">View All News &rarr;</a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Research Group Name. All Rights Reserved.</p>
-            <p>University Name, Department Name</p>
+        <div class="card blog-card">
+            <a href="blog/index.html">
+                <h2>Tang Lei's Blog</h2>
+                <p>Personal resume and hacker space.</p>
+                <span class="btn">Enter System</span>
+            </a>
         </div>
-    </footer>
-
-    <script src="assets/js/main.js"></script>
+    </div>
 </body>
 </html>
-
