@@ -1,152 +1,174 @@
 :root {
-    --bg-color: #0a0a0a;
-    --text-color: #00ff41;
-    --dim-color: #008f11;
-    --accent-color: #003b00;
-    --font-main: 'Courier New', Courier, monospace;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    --primary: #ff00ff;
+    --secondary: #00ffff;
+    --tertiary: #ffff00;
+    --bg: #000033;
+    --text: #ffffff;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: var(--font-main);
-    line-height: 1.6;
-    padding: 20px;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
 }
 
+.chaos-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: 
+        linear-gradient(45deg, #ff00ff 25%, transparent 25%, transparent 75%, #ff00ff 75%, #ff00ff),
+        linear-gradient(45deg, #ff00ff 25%, transparent 25%, transparent 75%, #ff00ff 75%, #ff00ff);
+    background-position: 0 0, 10px 10px;
+    background-size: 20px 20px;
+    opacity: 0.1;
+    animation: bg-scroll 20s linear infinite;
+}
+
+@keyframes bg-scroll {
+    0% { background-position: 0 0, 10px 10px; }
+    100% { background-position: 100px 100px, 110px 110px; }
+}
+
 .container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
-    border: 1px solid var(--dim-color);
     padding: 20px;
-    box-shadow: 0 0 20px var(--accent-color);
 }
 
 header {
-    margin-bottom: 40px;
-    border-bottom: 2px dashed var(--dim-color);
-    padding-bottom: 20px;
+    text-align: center;
+    margin-bottom: 50px;
+    border: 5px solid var(--secondary);
+    background: rgba(0,0,0,0.8);
+    padding: 20px;
+    box-shadow: 10px 10px 0 var(--primary);
 }
 
-h1 {
-    font-size: 2.5em;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    margin-bottom: 10px;
-    text-shadow: 2px 2px var(--accent-color);
+.wobbly-text {
+    font-size: 4rem;
+    color: var(--tertiary);
+    text-shadow: 4px 4px var(--primary);
+    animation: wobble 2s ease-in-out infinite;
+    margin: 0;
 }
 
-.subtitle {
-    color: var(--dim-color);
-    font-size: 0.9em;
+@keyframes wobble {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
 }
 
-section {
-    margin-bottom: 40px;
-}
-
-h2 {
-    background-color: var(--accent-color);
-    color: var(--text-color);
-    display: inline-block;
-    padding: 5px 10px;
-    margin-bottom: 20px;
-    border-left: 5px solid var(--text-color);
-}
-
-.label {
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    background: var(--primary);
+    color: white;
     font-weight: bold;
-    color: #fff;
+    margin-top: 10px;
+    padding: 5px 0;
 }
 
-.terminal-card {
-    border: 1px solid var(--dim-color);
-    padding: 15px;
-    background: rgba(0, 59, 0, 0.1);
+.marquee-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 15s linear infinite;
+    font-size: 1.5rem;
 }
 
-.timeline .entry {
-    margin-bottom: 20px;
-    padding-left: 20px;
-    border-left: 2px solid var(--dim-color);
-    position: relative;
+@keyframes marquee {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
 }
 
-.timeline .entry::before {
-    content: '>';
-    position: absolute;
-    left: -6px;
-    top: 0;
-    background: var(--bg-color);
-    color: var(--text-color);
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 40px;
+    box-shadow: 15px 15px 0 var(--secondary);
+    border: 3px solid black;
+    transform: rotate(-1deg);
+    transition: transform 0.3s;
 }
 
-.time {
-    display: block;
-    font-size: 0.8em;
-    color: var(--dim-color);
-    margin-bottom: 5px;
+.card:hover {
+    transform: rotate(1deg) scale(1.02);
+    z-index: 10;
 }
 
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+.card h2 {
+    background: var(--primary);
+    color: white;
+    display: inline-block;
+    padding: 10px 20px;
+    transform: rotate(-3deg);
+    margin-top: -40px;
+    box-shadow: 5px 5px 0 black;
+}
+
+.profile-content {
+    display: flex;
+    align-items: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
-.skill-category {
-    border: 1px solid var(--dim-color);
-    padding: 10px;
+.avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid var(--tertiary);
+    box-shadow: 0 0 20px var(--primary);
 }
 
-.skill-category h3 {
-    border-bottom: 1px solid var(--dim-color);
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-    font-size: 1em;
+.spinning {
+    animation: spin 10s linear infinite;
 }
 
-ul {
-    list-style-type: none;
+@keyframes spin {
+    100% { transform: rotate(360deg); }
 }
 
-li::before {
-    content: '> ';
-    color: var(--dim-color);
+.text-content {
+    flex: 1;
+    font-size: 1.2rem;
 }
 
-a {
-    color: var(--text-color);
-    text-decoration: none;
-}
-
-a:hover {
-    background-color: var(--text-color);
-    color: var(--bg-color);
-}
-
-.blink {
-    animation: blinker 1s linear infinite;
-}
-
-@keyframes blinker {
-    50% { opacity: 0; }
-}
-
-/* Glitch Effect */
-.glitch {
+.glitch-text {
+    font-weight: bold;
+    color: red;
     position: relative;
 }
 
-.glitch::before, .glitch::after {
-    content: attr(data-text);
+.beans-animation {
+    font-size: 3rem;
+    text-align: center;
+    margin: 20px 0;
+    animation: bounce 0.5s infinite alternate;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-20px); }
+}
+
+.iframe-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    margin-bottom: 20px;
+    border: 5px solid black;
+}
+
+.iframe-container iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -154,47 +176,49 @@ a:hover {
     height: 100%;
 }
 
-.glitch::before {
-    left: 2px;
-    text-shadow: -1px 0 red;
-    clip: rect(44px, 450px, 56px, 0);
-    animation: glitch-anim 5s infinite linear alternate-reverse;
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
-.glitch::after {
-    left: -2px;
-    text-shadow: -1px 0 blue;
-    clip: rect(44px, 450px, 56px, 0);
-    animation: glitch-anim2 5s infinite linear alternate-reverse;
+footer {
+    text-align: center;
+    padding: 40px;
+    background: black;
+    color: white;
+    margin-top: 50px;
 }
 
-@keyframes glitch-anim {
-    0% { clip: rect(31px, 9999px, 94px, 0); }
-    5% { clip: rect(70px, 9999px, 7px, 0); }
-    10% { clip: rect(25px, 9999px, 78px, 0); }
-    15% { clip: rect(5px, 9999px, 43px, 0); }
-    20% { clip: rect(61px, 9999px, 15px, 0); }
-    25% { clip: rect(38px, 9999px, 86px, 0); }
-    30% { clip: rect(89px, 9999px, 11px, 0); }
-    35% { clip: rect(1px, 9999px, 66px, 0); }
-    40% { clip: rect(55px, 9999px, 8px, 0); }
-    45% { clip: rect(23px, 9999px, 95px, 0); }
-    50% { clip: rect(98px, 9999px, 26px, 0); }
-    55% { clip: rect(6px, 9999px, 64px, 0); }
-    60% { clip: rect(39px, 9999px, 83px, 0); }
-    65% { clip: rect(12px, 9999px, 16px, 0); }
-    70% { clip: rect(81px, 9999px, 50px, 0); }
-    75% { clip: rect(53px, 9999px, 4px, 0); }
-    80% { clip: rect(28px, 9999px, 92px, 0); }
-    85% { clip: rect(86px, 9999px, 33px, 0); }
-    90% { clip: rect(4px, 9999px, 88px, 0); }
-    95% { clip: rect(62px, 9999px, 49px, 0); }
-    100% { clip: rect(19px, 9999px, 20px, 0); }
+.back-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: var(--secondary);
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid white;
 }
 
-@keyframes glitch-anim2 {
-    0% { clip: rect(65px, 9999px, 34px, 0); }
-    /* ... shortened for brevity, just repeating generic glitch behavior ... */
-    100% { clip: rect(2px, 9999px, 81px, 0); }
+.back-btn:hover {
+    background: white;
+    color: black;
 }
 
+/* Abstract floating elements added by JS */
+.floater {
+    position: fixed;
+    pointer-events: none;
+    font-size: 2rem;
+    opacity: 0.5;
+    z-index: 0;
+    animation: floatUp 5s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+    20% { opacity: 0.7; }
+    80% { opacity: 0.7; }
+    100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
